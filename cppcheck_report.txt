@@ -1,0 +1,302 @@
+base64.c:160:16: style: Condition 'outlen!=NULL' is always true [knownConditionTrueFalse]
+    if (outlen != NULL) {
+               ^
+base64.c:135:67: note: Assuming that condition 'outlen==NULL' is not redundant
+    if (indata == NULL || inlen <= 0 || outdata == NULL || outlen == NULL) {
+                                                                  ^
+base64.c:138:19: note: Assuming condition is false
+    if (inlen % 4 != 0) { // 需要解码的数据不是4字节倍数
+                  ^
+base64.c:160:16: note: Condition 'outlen!=NULL' is always true
+    if (outlen != NULL) {
+               ^
+base64.c:143:19: style: The scope of the variable 'c' can be reduced. [variableScope]
+    unsigned char c = 0;
+                  ^
+base64.c:143:21: style: Variable 'c' is assigned a value that is never used. [unreadVariable]
+    unsigned char c = 0;
+                    ^
+cJSON.c:515:53: warning: Either the condition 'c' is redundant or there is possible null pointer dereference: prev. [nullPointerRedundantCheck]
+static void suffix_object(cJSON *prev,cJSON *item) {prev->next=item;item->prev=prev;}
+                                                    ^
+cJSON.c:520:145: note: Assuming that condition 'c' is not redundant
+void   cJSON_AddItemToArray(cJSON *array, cJSON *item)      {cJSON *c=array->child;if (!item) return; if (!c) {array->child=item;} else {while (c && c->next) c=c->next; suffix_object(c,item);}}
+                                                                                                                                                ^
+cJSON.c:520:184: note: Calling function 'suffix_object', 1st argument 'c' value is 0
+void   cJSON_AddItemToArray(cJSON *array, cJSON *item)      {cJSON *c=array->child;if (!item) return; if (!c) {array->child=item;} else {while (c && c->next) c=c->next; suffix_object(c,item);}}
+                                                                                                                                                                                       ^
+cJSON.c:515:53: note: Null pointer dereference
+static void suffix_object(cJSON *prev,cJSON *item) {prev->next=item;item->prev=prev;}
+                                                    ^
+cJSON.c:548:75: style: Variable 'n' is assigned a value that is never used. [unreadVariable]
+cJSON *cJSON_CreateIntArray(const int *numbers,int count)  {int i;cJSON *n=0,*p=0,*a=cJSON_CreateArray();for(i=0;a && i<count;i++){n=cJSON_CreateNumber(numbers[i]);if(!i)a->child=n;else suffix_object(p,n);p=n;}return a;}
+                                                                          ^
+cJSON.c:549:78: style: Variable 'n' is assigned a value that is never used. [unreadVariable]
+cJSON *cJSON_CreateFloatArray(const float *numbers,int count) {int i;cJSON *n=0,*p=0,*a=cJSON_CreateArray();for(i=0;a && i<count;i++){n=cJSON_CreateNumber(numbers[i]);if(!i)a->child=n;else suffix_object(p,n);p=n;}return a;}
+                                                                             ^
+cJSON.c:550:80: style: Variable 'n' is assigned a value that is never used. [unreadVariable]
+cJSON *cJSON_CreateDoubleArray(const double *numbers,int count) {int i;cJSON *n=0,*p=0,*a=cJSON_CreateArray();for(i=0;a && i<count;i++){n=cJSON_CreateNumber(numbers[i]);if(!i)a->child=n;else suffix_object(p,n);p=n;}return a;}
+                                                                               ^
+cJSON.c:551:79: style: Variable 'n' is assigned a value that is never used. [unreadVariable]
+cJSON *cJSON_CreateStringArray(const char **strings,int count) {int i;cJSON *n=0,*p=0,*a=cJSON_CreateArray();for(i=0;a && i<count;i++){n=cJSON_CreateString(strings[i]);if(!i)a->child=n;else suffix_object(p,n);p=n;}return a;}
+                                                                              ^
+bytestool.h:37:21: style: Condition '*pucData==0x78' is always false [knownConditionTrueFalse]
+    return *pucData == 0x78?LittleEndian:BigEndian;
+                    ^
+bytestool.h:35:27: note: Assignment 'usData=0x12345678', assigned value is 305419896
+    unsigned int usData = 0x12345678;
+                          ^
+bytestool.h:37:21: note: Condition '*pucData==0x78' is always false
+    return *pucData == 0x78?LittleEndian:BigEndian;
+                    ^
+main.cpp:386:31: style: Condition 'tempinfo->isconnect==0' is always true [knownConditionTrueFalse]
+     if ( tempinfo->isconnect == 0 )
+                              ^
+main.cpp:384:64: note: Assuming that condition 'tempinfo->isconnect==0' is not redundant
+    if ( FD_ISSET( it1->first, &writeSet )&&tempinfo->isconnect==0 )
+                                                               ^
+main.cpp:386:31: note: Condition 'tempinfo->isconnect==0' is always true
+     if ( tempinfo->isconnect == 0 )
+                              ^
+param.h:35:9: style: The scope of the variable 'ypos' can be reduced. [variableScope]
+    int ypos = 0;
+        ^
+param.h:35:14: style: Variable 'ypos' is assigned a value that is never used. [unreadVariable]
+    int ypos = 0;
+             ^
+main.cpp:157:13: style: Variable 'maxfd' is assigned a value that is never used. [unreadVariable]
+ int  maxfd = 0;
+            ^
+main.cpp:161:15: style: Variable 'maxfdp' is assigned a value that is never used. [unreadVariable]
+ int  maxfdp  = 0;
+              ^
+main.cpp:162:9: style: Variable 'ret' is assigned a value that is never used. [unreadVariable]
+ int ret=0;
+        ^
+main.cpp:193:17: performance: Prefer prefix ++/-- operators for non-primitive types. [postfixOperator]
+                it3++;
+                ^
+nonblocking.h:65:14: warning: Identical condition 'nRet==SOCKET_ERROR', second condition is always false [identicalConditionAfterEarlyExit]
+    if (nRet == SOCKET_ERROR)
+             ^
+nonblocking.h:52:14: note: If condition 'nRet==SOCKET_ERROR' is true, the function will return/exit
+    if (nRet == SOCKET_ERROR)
+             ^
+nonblocking.h:65:14: note: Testing identical condition 'nRet==SOCKET_ERROR'
+    if (nRet == SOCKET_ERROR)
+             ^
+nonblocking.h:59:29: style: Variable 'alive_out' is assigned a value that is never used. [unreadVariable]
+    tcp_keepalive alive_out = {0};
+                            ^
+nonblocking.h:60:28: style: Variable 'alive_in.keepalivetime' is assigned a value that is never used. [unreadVariable]
+    alive_in.keepalivetime = 60000;     // 开始首次KeepAlive探测前的TCP空闭时间
+                           ^
+nonblocking.h:61:32: style: Variable 'alive_in.keepaliveinterval' is assigned a value that is never used. [unreadVariable]
+    alive_in.keepaliveinterval = 60000; // 两次KeepAlive探测间的时间间隔
+                               ^
+nonblocking.h:62:20: style: Variable 'alive_in.onoff' is assigned a value that is never used. [unreadVariable]
+    alive_in.onoff = TRUE;
+                   ^
+nonblocking.h:63:33: style: Variable 'ulBytesReturn' is assigned a value that is never used. [unreadVariable]
+    unsigned long ulBytesReturn = 0;
+                                ^
+ngrok.cpp:529:23: style: Redundant condition: If 'readlen == -1', the comparison 'readlen < 1' is always true. [redundantCondition]
+    if (readlen == -1 || readlen < 1)
+                      ^
+ngrok.cpp:133:5: warning: sscanf() without field width limits can crash with huge input data. [invalidscanf]
+    sscanf(url, "%[^:]://%[^:]:%[0-9]", protocol, host, portstr);
+    ^
+ngrok.cpp:135:5: warning: sscanf() without field width limits can crash with huge input data. [invalidscanf]
+    sscanf(host, "%[^.].", subdomain);
+    ^
+ngrok.cpp:335:9: warning: sscanf() without field width limits can crash with huge input data. [invalidscanf]
+        sscanf(tunnelreq->url, "%[^:]://%[^\n]", protocol, remotehost);
+        ^
+ngrok.cpp:97:5: error: Memory leak: sinfo [memleak]
+    return 0;
+    ^
+ngrok.cpp:653:5: error: Memory leak: sinfo [memleak]
+    return 0;
+    ^
+ngrok.cpp:86:23: style: C-style pointer casting [cstyleCast]
+    Sockinfo *sinfo = (Sockinfo *)malloc(sizeof(Sockinfo));
+                      ^
+ngrok.cpp:160:36: style: C-style pointer casting [cstyleCast]
+            TunnelReq *tunnelreq = (TunnelReq *)malloc(sizeof(TunnelReq));
+                                   ^
+ngrok.cpp:205:25: style: C-style pointer casting [cstyleCast]
+    ssl_info *sslinfo = (ssl_info *)malloc(sizeof(ssl_info));
+                        ^
+ngrok.cpp:231:25: style: C-style pointer casting [cstyleCast]
+    ssl_info *sslinfo = (ssl_info *)malloc(sizeof(ssl_info));
+                        ^
+ngrok.cpp:468:39: style: C-style pointer casting [cstyleCast]
+                    Sockinfo *sinfo = (Sockinfo *)malloc(sizeof(Sockinfo));
+                                      ^
+ngrok.cpp:624:20: style: C-style pointer casting [cstyleCast]
+    *mainsslinfo = (ssl_info *)malloc(sizeof(ssl_info));
+                   ^
+ngrok.cpp:646:23: style: C-style pointer casting [cstyleCast]
+    Sockinfo *sinfo = (Sockinfo *)malloc(sizeof(Sockinfo));
+                      ^
+ngrok.cpp:125:50: style:inconclusive: Function 'SetLocalAddrInfo' argument 3 names different: declaration 'istunnel' definition 'regstate'. [funcArgNamesDifferent]
+int SetLocalAddrInfo(char *url, char *ReqId, int regstate)
+                                                 ^
+ngrok.h:17:48: note: Function 'SetLocalAddrInfo' argument 3 names different: declaration 'istunnel' definition 'regstate'.
+int SetLocalAddrInfo(char *url,char *ReqId,int istunnel);
+                                               ^
+ngrok.cpp:125:50: note: Function 'SetLocalAddrInfo' argument 3 names different: declaration 'istunnel' definition 'regstate'.
+int SetLocalAddrInfo(char *url, char *ReqId, int regstate)
+                                                 ^
+ngrok.cpp:103:67: performance: Prefer prefix ++/-- operators for non-primitive types. [postfixOperator]
+    for (iter = G_TunnelList.begin(); iter != G_TunnelList.end(); iter++)
+                                                                  ^
+ngrok.cpp:119:9: performance: Prefer prefix ++/-- operators for non-primitive types. [postfixOperator]
+        it3++;
+        ^
+ngrok.cpp:137:67: performance: Prefer prefix ++/-- operators for non-primitive types. [postfixOperator]
+    for (iter = G_TunnelList.begin(); iter != G_TunnelList.end(); iter++)
+                                                                  ^
+nonblocking.cpp:51:13: warning: Assignment of function parameter has no effect outside the function. Did you forget dereferencing it? [uselessAssignmentPtrArg]
+            sock_info = NULL;
+            ^
+nonblocking.cpp:40:16: warning: Either the condition 'sock_info!=NULL' is redundant or there is possible null pointer dereference: sock_info. [nullPointerRedundantCheck]
+      shutdown(sock_info->sock, 2);
+               ^
+nonblocking.cpp:48:21: note: Assuming that condition 'sock_info!=NULL' is not redundant
+      if (sock_info != NULL)
+                    ^
+nonblocking.cpp:40:16: note: Null pointer dereference
+      shutdown(sock_info->sock, 2);
+               ^
+nonblocking.cpp:45:13: warning: Either the condition 'sock_info!=NULL' is redundant or there is possible null pointer dereference: sock_info. [nullPointerRedundantCheck]
+      close(sock_info->sock);
+            ^
+nonblocking.cpp:48:21: note: Assuming that condition 'sock_info!=NULL' is not redundant
+      if (sock_info != NULL)
+                    ^
+nonblocking.cpp:45:13: note: Null pointer dereference
+      close(sock_info->sock);
+            ^
+nonblocking.cpp:43:19: warning: Either the condition 'sock_info!=NULL' is redundant or there is possible null pointer dereference: sock_info. [nullPointerRedundantCheck]
+      closesocket(sock_info->sock);
+                  ^
+nonblocking.cpp:48:21: note: Assuming that condition 'sock_info!=NULL' is not redundant
+      if (sock_info != NULL)
+                    ^
+nonblocking.cpp:43:19: note: Null pointer dereference
+      closesocket(sock_info->sock);
+                  ^
+param.cpp:105:31: style: C-style pointer casting [cstyleCast]
+     TunnelInfo *tunnelinfo = (TunnelInfo *)malloc(sizeof(TunnelInfo));
+                              ^
+param.cpp:24:11: style: Variable 'pos' is assigned a value that is never used. [unreadVariable]
+  int pos = 0;
+          ^
+param.cpp:27:11: style: Variable 'run' is assigned a value that is never used. [unreadVariable]
+  int run = 1;
+          ^
+polarsslbio.cpp:72:15: style: Variable 'ret' is assigned a value that is never used. [unreadVariable]
+    if( ( ret = mbedtls_ssl_get_session( &sslinfo->ssl, &ssn ) ) != 0 )
+              ^
+udp.cpp:155:20: style: Redundant condition: If 'strLen > 0', the comparison 'strLen != -1' is always true. [redundantCondition]
+        if(strLen>0&&strLen!=-1){
+                   ^
+udp.cpp:18:31: style: C-style pointer casting [cstyleCast]
+        TunnelReq *tunnelreq =(TunnelReq*)it->second;
+                              ^
+udp.cpp:122:17: style: The scope of the variable 'tunnelinfo' can be reduced. [variableScope]
+    TunnelInfo *tunnelinfo;
+                ^
+udp.cpp:256:9: style: The scope of the variable 'SelectRcv' can be reduced. [variableScope]
+    int SelectRcv;
+        ^
+opensslbio.h:8:1: error: The one definition rule is violated, different classes/structs have the same name 'ssl_info' [ctuOneDefinitionRuleViolation]
+struct ssl_info
+^
+polarsslbio.h:34:1: note: The one definition rule is violated, different classes/structs have the same name 'ssl_info'
+struct ssl_info
+^
+opensslbio.h:8:1: note: The one definition rule is violated, different classes/structs have the same name 'ssl_info'
+struct ssl_info
+^
+cJSON.c:515:53: warning: Null pointer dereference: prev [ctunullpointer]
+static void suffix_object(cJSON *prev,cJSON *item) {prev->next=item;item->prev=prev;}
+                                                    ^
+cJSON.c:520:145: note: Assuming that condition 'c' is not redundant
+
+                                                                                                                                                ^
+cJSON.c:520:183: note: Calling function suffix_object, 1st argument is null
+void   cJSON_AddItemToArray(cJSON *array, cJSON *item)      {cJSON *c=array->child;if (!item) return; if (!c) {array->child=item;} else {while (c && c->next) c=c->next; suffix_object(c,item);}}
+                                                                                                                                                                                      ^
+cJSON.c:515:53: note: Dereferencing argument prev that is null
+static void suffix_object(cJSON *prev,cJSON *item) {prev->next=item;item->prev=prev;}
+                                                    ^
+udp.cpp:249:0: style: The function 'UdpClient' is never used. [unusedFunction]
+
+^
+cJSON.c:522:0: style: The function 'cJSON_AddItemReferenceToArray' is never used. [unusedFunction]
+
+^
+cJSON.c:523:0: style: The function 'cJSON_AddItemReferenceToObject' is never used. [unusedFunction]
+
+^
+cJSON.c:541:0: style: The function 'cJSON_CreateBool' is never used. [unusedFunction]
+
+^
+cJSON.c:550:0: style: The function 'cJSON_CreateDoubleArray' is never used. [unusedFunction]
+
+^
+cJSON.c:540:0: style: The function 'cJSON_CreateFalse' is never used. [unusedFunction]
+
+^
+cJSON.c:549:0: style: The function 'cJSON_CreateFloatArray' is never used. [unusedFunction]
+
+^
+cJSON.c:548:0: style: The function 'cJSON_CreateIntArray' is never used. [unusedFunction]
+
+^
+cJSON.c:538:0: style: The function 'cJSON_CreateNull' is never used. [unusedFunction]
+
+^
+cJSON.c:545:0: style: The function 'cJSON_CreateObject' is never used. [unusedFunction]
+
+^
+cJSON.c:551:0: style: The function 'cJSON_CreateStringArray' is never used. [unusedFunction]
+
+^
+cJSON.c:539:0: style: The function 'cJSON_CreateTrue' is never used. [unusedFunction]
+
+^
+cJSON.c:527:0: style: The function 'cJSON_DeleteItemFromArray' is never used. [unusedFunction]
+
+^
+cJSON.c:529:0: style: The function 'cJSON_DeleteItemFromObject' is never used. [unusedFunction]
+
+^
+cJSON.c:511:0: style: The function 'cJSON_GetArrayItem' is never used. [unusedFunction]
+
+^
+cJSON.c:510:0: style: The function 'cJSON_GetArraySize' is never used. [unusedFunction]
+
+^
+cJSON.c:37:0: style: The function 'cJSON_GetErrorPtr' is never used. [unusedFunction]
+
+^
+cJSON.c:60:0: style: The function 'cJSON_InitHooks' is never used. [unusedFunction]
+
+^
+cJSON.c:581:0: style: The function 'cJSON_Minify' is never used. [unusedFunction]
+
+^
+cJSON.c:283:0: style: The function 'cJSON_Print' is never used. [unusedFunction]
+
+^
+cJSON.c:284:0: style: The function 'cJSON_PrintUnformatted' is never used. [unusedFunction]
+
+^
+cJSON.c:535:0: style: The function 'cJSON_ReplaceItemInObject' is never used. [unusedFunction]
+
+^
+nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) [missingInclude]
+
